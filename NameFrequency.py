@@ -16,9 +16,9 @@ class NameFrequency:
     # dropping null value columns to avoid errors
     # making data frame
     def preparingData(self, file_name, column_name):
-        data = pd.read_csv(file_name)
+        data = pd.read_csv(file_name) #creates dataframe
         data.dropna(inplace=True)
-        data_frame = dict(data[column_name].str.split(" ", n=1, expand=True))
+        data_frame = (data[column_name].str.split(" ", n=1, expand=True)) #removed cast to dictionary 'dict'
         self.data_frame = data_frame
         if isinstance(self.data_frame, pd.DataFrame):
             return True
